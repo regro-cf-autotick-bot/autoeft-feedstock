@@ -1,5 +1,5 @@
 {% set name = "autoeft" %}
-{% set version = "1.0.0" %}
+{% set version = "1.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f8d0f861dbe2f8b09533a96f5812028e2aab750d6ba2112a14d0f8b75009be55
+  sha256: 655a07ac390e0f7d1a9dd84b45f9bbd7474ab7af4d9abfa0e2a47adbc985c71f
 
 
 build:
