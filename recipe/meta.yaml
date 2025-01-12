@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 655a07ac390e0f7d1a9dd84b45f9bbd7474ab7af4d9abfa0e2a47adbc985c71f
 
 
@@ -15,15 +15,15 @@ build:
     - autoeft = autoeft.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - hatchling
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - numpy >=1.18
     - packaging >=17.1
     - pydantic >=1.9,<2.dev0
@@ -34,6 +34,8 @@ requirements:
     - semver >=3.0
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - autoeft
 
